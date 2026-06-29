@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html,body { width:2340px; height:1560px; overflow:hidden; }
+  body {
+    font-family: Inter, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background:
+      radial-gradient(1200px 800px at 82% 18%, rgba(99,102,241,.30), transparent 60%),
+      radial-gradient(1000px 700px at 12% 88%, rgba(167,139,250,.20), transparent 60%),
+      linear-gradient(135deg, #0a0f20 0%, #0e1530 50%, #0b1024 100%);
+    color:#fff; position:relative;
+  }
+  body::before{
+    content:""; position:absolute; inset:0;
+    background-image: radial-gradient(rgba(255,255,255,.05) 1.5px, transparent 1.5px);
+    background-size: 38px 38px; opacity:.5;
+  }
+  .stage { position:relative; width:100%; height:100%; display:flex; align-items:center; }
+  .left { width:44%; padding:0 0 0 130px; position:relative; z-index:3; }
+  .brand { display:flex; align-items:center; gap:22px; margin-bottom:54px; }
+  .badge { width:104px; height:104px; filter: drop-shadow(0 12px 30px rgba(99,102,241,.5)); }
+  .wordmark { font-size:64px; font-weight:800; letter-spacing:-1px; }
+  h1 { font-size:92px; line-height:1.04; font-weight:800; letter-spacing:-2.5px; }
+  h1 .grad { background:linear-gradient(100deg,#a5b4fc,#6366f1 55%,#22d3ee); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .sub { margin-top:34px; font-size:34px; line-height:1.5; color:#aeb6d4; font-weight:400; max-width:880px; }
+  .stack { margin-top:30px; display:flex; gap:14px; align-items:center; font-size:27px; color:#cfd6f0; font-weight:600; }
+  .dot { width:9px;height:9px;border-radius:50%; background:#818cf8; display:inline-block; }
+  .chips { margin-top:62px; display:flex; flex-wrap:wrap; gap:18px; max-width:900px; }
+  .chip {
+    font-size:28px; font-weight:600; padding:16px 30px; border-radius:999px;
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14);
+    backdrop-filter: blur(6px); color:#e7eaf6;
+  }
+  .chip b { color:#fff; }
+  .right { position:absolute; right:-60px; top:0; width:64%; height:100%; z-index:2; perspective:2600px; }
+  .frame {
+    position:absolute; border-radius:20px; overflow:hidden;
+    box-shadow: 0 60px 120px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06);
+    background:#0b1020; transform-style:preserve-3d;
+  }
+  .frame .bar { height:46px; background:#1b2340; display:flex; align-items:center; gap:11px; padding:0 22px; }
+  .frame .bar i { width:15px; height:15px; border-radius:50%; display:inline-block; }
+  .frame img { display:block; width:100%; }
+  .f-dark { width:1500px; top:300px; right:-150px; transform: rotateY(-22deg) rotateX(5deg) rotate(2deg); opacity:.96; }
+  .f-light { width:1500px; top:760px; right:120px; transform: rotateY(-22deg) rotateX(4deg) rotate(2deg); }
+  .glow { position:absolute; right:18%; top:40%; width:680px; height:680px; border-radius:50%;
+    background:radial-gradient(circle, rgba(99,102,241,.4), transparent 65%); filter:blur(50px); z-index:1; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="glow"></div>
+    <div class="left">
+      <div class="brand">
+        <svg class="badge" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+          <defs>
+            <linearGradient id="vxa" x1="0.2" y1="0" x2="0.8" y2="1"><stop offset="0" stop-color="#818CF8"/><stop offset="0.55" stop-color="#6366F1"/><stop offset="1" stop-color="#4338CA"/></linearGradient>
+            <linearGradient id="vxb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C7D2FE"/><stop offset="1" stop-color="#818CF8"/></linearGradient>
+          </defs>
+          <path d="M11 31 L37 80" stroke="url(#vxb)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M26 26 L53 80 L80 26" stroke="url(#vxa)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span class="wordmark">VantyX</span>
+      </div>
+      <h1>Nuxt&nbsp;4 Admin<br><span class="grad">Dashboard Template</span></h1>
+      <p class="sub">Accessible, multi-theme admin UI to launch your next dashboard fast.</p>
+      <div class="stack"><span class="dot"></span> Vue 3.5 &nbsp;·&nbsp; Tailwind CSS 4 &nbsp;·&nbsp; Reka UI &nbsp;·&nbsp; TypeScript</div>
+      <div class="chips">
+        <div class="chip"><b>9</b> Dashboards</div>
+        <div class="chip"><b>140</b> Components</div>
+        <div class="chip"><b>100+</b> Pages</div>
+        <div class="chip">Dark Mode</div>
+        <div class="chip"><b>6</b> Color Themes</div>
+        <div class="chip">RTL &amp; i18n</div>
+        <div class="chip">Accessible</div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="frame f-dark">
+        <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+        <img src="raw/analytics-dark.png" alt="dark dashboard" />
+      </div>
+      <div class="frame f-light">
+        <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+        <img src="raw/dashboard-light.png" alt="light dashboard" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>

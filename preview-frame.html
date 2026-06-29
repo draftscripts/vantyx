@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:2100px; height:1400px; overflow:hidden; }
+  body {
+    font-family: Inter, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background:
+      radial-gradient(1000px 700px at 85% 12%, rgba(99,102,241,.26), transparent 60%),
+      radial-gradient(900px 650px at 8% 92%, rgba(252,88,0,.18), transparent 60%),
+      linear-gradient(135deg, #0a0f20 0%, #0e1530 55%, #0b1024 100%);
+    color:#fff; position:relative;
+  }
+  body::before{ content:""; position:absolute; inset:0;
+    background-image: radial-gradient(rgba(255,255,255,.045) 1.5px, transparent 1.5px);
+    background-size:36px 36px; opacity:.5; }
+  .wrap { position:relative; z-index:2; height:100%; display:flex; flex-direction:column; padding:74px 90px 90px; }
+  .head { display:flex; align-items:center; gap:26px; margin-bottom:50px; }
+  .badge { width:74px; height:74px; flex:0 0 auto; filter:drop-shadow(0 8px 20px rgba(252,88,0,.4)); }
+  .ttl { font-size:58px; font-weight:800; letter-spacing:-1.2px; line-height:1.05; }
+  .sub { font-size:30px; color:#aeb6d4; margin-top:8px; font-weight:400; }
+  .spacer { flex:1; }
+  .wm { margin-left:auto; align-self:flex-start; font-size:30px; font-weight:700; color:#cfd6f0; opacity:.85; }
+  .frame {
+    flex:1; border-radius:20px; overflow:hidden; align-self:stretch;
+    box-shadow: 0 50px 110px -28px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06);
+    background:#0b1020; display:flex; flex-direction:column;
+  }
+  .bar { height:46px; flex:0 0 auto; background:#1b2340; display:flex; align-items:center; gap:11px; padding:0 22px; }
+  .bar i { width:15px; height:15px; border-radius:50%; }
+  .shot { flex:1; overflow:hidden; }
+  .shot img { width:100%; display:block; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <svg class="badge" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FF8A3D"/><stop offset="1" stop-color="#FC5800"/></linearGradient></defs>
+        <rect width="64" height="64" rx="15" fill="url(#g)"/>
+        <path d="M19 21L32 45L45 21" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <div class="ttl" id="ttl">Title</div>
+        <div class="sub" id="sub">Subtitle</div>
+      </div>
+      <div class="wm">VantyX</div>
+    </div>
+    <div class="frame">
+      <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+      <div class="shot"><img id="shot" src="" alt="" /></div>
+    </div>
+  </div>
+<script>
+  const p = new URLSearchParams(location.search);
+  document.getElementById('ttl').textContent = p.get('title') || '';
+  document.getElementById('sub').textContent = p.get('sub') || '';
+  document.getElementById('shot').src = p.get('img') || '';
+</script>
+</body>
+</html>

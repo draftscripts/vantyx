@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Inter, -apple-system, "Segoe UI", Roboto, sans-serif; background:#05070f; }
+  .page {
+    width:2100px; height:1400px; position:relative; color:#fff; overflow:hidden;
+    background:
+      radial-gradient(1000px 700px at 85% 12%, rgba(99,102,241,.28), transparent 60%),
+      radial-gradient(900px 650px at 8% 92%, rgba(167,139,250,.18), transparent 60%),
+      linear-gradient(135deg, #0a0f20 0%, #0e1530 55%, #0b1024 100%);
+  }
+  .page::before{ content:""; position:absolute; inset:0;
+    background-image: radial-gradient(rgba(255,255,255,.045) 1.5px, transparent 1.5px);
+    background-size:36px 36px; opacity:.5; }
+  .wrap { position:relative; z-index:2; height:100%; display:flex; flex-direction:column; padding:74px 90px 90px; }
+  .head { display:flex; align-items:center; gap:22px; margin-bottom:50px; }
+  .badge { width:74px; height:74px; flex:0 0 auto; filter:drop-shadow(0 8px 18px rgba(99,102,241,.5)); }
+  .ttl { font-size:58px; font-weight:800; letter-spacing:-1.2px; line-height:1.05; }
+  .sub { font-size:30px; color:#aeb6d4; margin-top:8px; font-weight:400; }
+  .wm { margin-left:auto; align-self:flex-start; font-size:30px; font-weight:700; color:#cfd6f0; opacity:.85; }
+  .frame { flex:1; border-radius:20px; overflow:hidden; box-shadow:0 50px 110px -28px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06); background:#0b1020; display:flex; flex-direction:column; }
+  .bar { height:46px; flex:0 0 auto; background:#1b2340; display:flex; align-items:center; gap:11px; padding:0 22px; }
+  .bar i { width:15px; height:15px; border-radius:50%; }
+  .shot { flex:1; overflow:hidden; }
+  .shot img { width:100%; display:block; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  const ITEMS = [
+    { img:'raw/dashboard-light.png', title:'9 Dashboards',          sub:'Sales, Analytics, CRM, Crypto, eCommerce, HRM, Jobs & more' },
+    { img:'raw/analytics-light.png', title:'Analytics Dashboard',   sub:'Themed ApexCharts with real-time widgets' },
+    { img:'raw/analytics-dark.png',  title:'Dark Mode',             sub:'Every screen is fully dark-aware' },
+    { img:'raw/customizer-light.png',title:'Live Theme Customizer', sub:'Colors, layout & direction — saved automatically' },
+    { img:'raw/horizontal-light.png',title:'3 Menu Layouts',        sub:'Vertical, collapsible & horizontal top-bar nav' },
+    { img:'raw/ecommerce-rose.png',  title:'6 Color Themes',        sub:'One click re-skins the entire app' },
+    { img:'raw/crm-rtl.png',         title:'RTL & i18n Ready',      sub:'First-class right-to-left support' },
+    { img:'raw/kanban-light.png',    title:'App Modules',           sub:'Kanban, Calendar, Chat, Email & Tasks' },
+    { img:'raw/landing-light.png',   title:'Marketing Landing Page',sub:'Includes a polished guest / landing layout' },
+  ];
+  const badge = `<svg class="badge" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none"><defs><linearGradient id="vxa" x1="0.2" y1="0" x2="0.8" y2="1"><stop offset="0" stop-color="#818CF8"/><stop offset="0.55" stop-color="#6366F1"/><stop offset="1" stop-color="#4338CA"/></linearGradient><linearGradient id="vxb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C7D2FE"/><stop offset="1" stop-color="#818CF8"/></linearGradient></defs><path d="M11 31 L37 80" stroke="url(#vxb)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M26 26 L53 80 L80 26" stroke="url(#vxa)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;
+  document.getElementById('root').innerHTML = ITEMS.map((it,i)=>`
+    <section class="page" id="p${i+1}">
+      <div class="wrap">
+        <div class="head">${badge}<div><div class="ttl">${it.title}</div><div class="sub">${it.sub}</div></div><div class="wm">VantyX</div></div>
+        <div class="frame"><div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div><div class="shot"><img src="${it.img}" alt="${it.title}"/></div></div>
+      </div>
+    </section>`).join('');
+</script>
+</body>
+</html>

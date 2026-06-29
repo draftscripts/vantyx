@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1180px; height:600px; overflow:hidden; }
+  body {
+    font-family: Inter, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background:
+      radial-gradient(700px 460px at 86% 12%, rgba(99,102,241,.32), transparent 60%),
+      radial-gradient(620px 420px at 6% 94%, rgba(167,139,250,.20), transparent 60%),
+      linear-gradient(135deg, #0a0f20 0%, #0e1530 55%, #0b1024 100%);
+    color:#fff; position:relative;
+  }
+  body::before{ content:""; position:absolute; inset:0;
+    background-image: radial-gradient(rgba(255,255,255,.05) 1.3px, transparent 1.3px);
+    background-size:26px 26px; opacity:.5; }
+  .stage { position:relative; height:100%; display:flex; align-items:center; z-index:2; }
+  .left { width:56%; padding:0 0 0 64px; }
+  .brand { display:flex; align-items:center; gap:14px; margin-bottom:26px; }
+  .badge { width:64px; height:64px; filter:drop-shadow(0 8px 16px rgba(99,102,241,.5)); }
+  .wordmark { font-size:42px; font-weight:800; letter-spacing:-.5px; }
+  h1 { font-size:62px; line-height:1.05; font-weight:800; letter-spacing:-1.6px; }
+  h1 .grad { background:linear-gradient(100deg,#a5b4fc,#6366f1 55%,#22d3ee); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .sub { margin-top:18px; font-size:26px; color:#aeb6d4; font-weight:500; }
+  .chips { margin-top:26px; display:flex; gap:11px; }
+  .chip { font-size:21px; font-weight:600; padding:9px 18px; border-radius:999px;
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); color:#e7eaf6; }
+  .right { position:absolute; right:-40px; top:0; width:48%; height:100%; perspective:1500px; }
+  .frame { position:absolute; top:96px; right:-70px; width:760px; border-radius:14px; overflow:hidden;
+    box-shadow:0 40px 80px -22px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06); background:#0b1020;
+    transform: rotateY(-20deg) rotateX(5deg) rotate(2deg); }
+  .frame .bar { height:30px; background:#1b2340; display:flex; align-items:center; gap:7px; padding:0 14px; }
+  .frame .bar i { width:10px; height:10px; border-radius:50%; }
+  .frame img { display:block; width:100%; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="left">
+      <div class="brand">
+        <svg class="badge" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+          <defs>
+            <linearGradient id="vxa" x1="0.2" y1="0" x2="0.8" y2="1"><stop offset="0" stop-color="#818CF8"/><stop offset="0.55" stop-color="#6366F1"/><stop offset="1" stop-color="#4338CA"/></linearGradient>
+            <linearGradient id="vxb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C7D2FE"/><stop offset="1" stop-color="#818CF8"/></linearGradient>
+          </defs>
+          <path d="M11 31 L37 80" stroke="url(#vxb)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M26 26 L53 80 L80 26" stroke="url(#vxa)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span class="wordmark">VantyX</span>
+      </div>
+      <h1>Nuxt&nbsp;4 Admin<br><span class="grad">Dashboard</span></h1>
+      <p class="sub">Vue 3.5 · Tailwind CSS 4 · Reka UI</p>
+      <div class="chips">
+        <div class="chip">Dark Mode</div>
+        <div class="chip">6 Themes</div>
+        <div class="chip">RTL</div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="frame">
+        <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+        <img src="raw/dashboard-light.png" alt="dashboard" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>
